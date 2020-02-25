@@ -4,5 +4,4 @@ fe00::0	ip6-localnet
 ff00::0	ip6-mcastprefix
 ff02::1	ip6-allnodes
 ff02::2	ip6-allrouters
-172.20.0.2	kserver.edt.org
-172.20.0.3	kclient.edt.org
+54.166.188.251 ldapserver kserver.edt.org kserver
