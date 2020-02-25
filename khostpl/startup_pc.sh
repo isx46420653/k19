@@ -1,10 +1,11 @@
-#/bin/bash
+#!/bin/bash
 
-# Copiem els fitxers de configuració
-cp /opt/docker/krb5.conf /etc/krb5.conf
-cp /opt/docker/hosts /etc/hosts
-cp /opt/docker/system-auth /etc/pam.d/system-auth
+# Instal·lació del client a una partició local.
 
+dnf -y install krb5-workstation pam_krb5 passwd
+cp hosts /etc/hosts
+cp krb5.conf /etc/krb5.conf
+cp system-auth /etc/pam.d/system-auth
 
 # Creem els usuaris locals
 useradd local1

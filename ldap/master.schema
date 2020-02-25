@@ -1,0 +1,33 @@
+attributetype ( 1.1.2.1.1 NAME 'x-actiu'
+  DESC 'Assisteix a les classes'
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.7
+  SINGLE-VALUE )
+
+attributetype ( 1.1.2.1.2 NAME 'x-master'
+  DESC 'Quin master està cursant'
+  EQUALITY caseIgnoreMatch
+  SUBSTR caseIgnoreSubstringsMatch
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+  SINGLE-VALUE )
+
+attributetype ( 1.1.2.1.3 NAME 'x-any'
+  DESC 'Any del master'
+  SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
+  SINGLE-VALUE )
+
+attributetype ( 1.1.2.1.4 NAME 'x-foto'
+    DESC 'Foto alumne'
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.28 )
+
+attributetype ( 1.1.2.1.5 NAME 'x-web'
+    DESC 'Web del alumne'
+    EQUALITY caseExactMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.15
+    SINGLE-VALUE )
+
+objectclass ( 1.1.2.2.1 NAME 'x-master'
+  DESC 'Master'
+  SUP TOP
+  AUXILIARY
+  MUST ( x-master $ x-any )
+  MAY ( x-actiu $ x-web $ x-foto ) )
