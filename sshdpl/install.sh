@@ -1,11 +1,12 @@
-#!/bin/bash
+#/bin/bash
 
-# Instal·lació del client a una partició local.
+# Copiem els fitxers de configuració
+cp /opt/docker/krb5.conf /etc/krb5.conf
+cp /opt/docker/hosts /etc/hosts
+cp /opt/docker/ldap.conf /etc/openldap/ldap.conf
 
-dnf -y install krb5-workstation pam_krb5 passwd
-cp hosts /etc/hosts
-cp krb5.conf /etc/krb5.conf
-cp system-auth /etc/pam.d/system-auth
+# Permetem la autenticació amd LDAP
+bash /opt/docker/auth.sh
 
 # Creem els usuaris locals
 useradd local1
@@ -21,10 +22,5 @@ echo "local4" | passwd --stdin local4
 echo "local5" | passwd --stdin local5
 echo "local6" | passwd --stdin local6
 
-# Creem els usuaris Kerberos, SENSE PASSWORD
-useradd kuser01
-useradd kuser02
-useradd kuser03
-useradd kuser04
-useradd kuser05
-useradd kuser06
+# Kerberitzem el servei
+cp /opt/docker/sshd_config /etc/ssh/sshd_config
