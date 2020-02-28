@@ -38,3 +38,6 @@ cp /opt/docker/kadm5.acl /var/kerberos/krb5kdc/kadm5.acl
 /usr/sbin/kadmin.local -q "addprinc -pw pau pau"
 /usr/sbin/kadmin.local -q "addprinc -pw pere pere"
 /usr/sbin/kadmin.local -q "addprinc -pw admin admin"
+
+# Principal SSH
+/usr/sbin/kadmin.local -q "addprinc -randkey host/sshd.edt.org"
