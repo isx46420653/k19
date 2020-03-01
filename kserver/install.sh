@@ -3,7 +3,6 @@
 # Copiem els fitxers de configuració
 cp /opt/docker/krb5.conf /etc/krb5.conf
 cp /opt/docker/kdc.conf /var/kerberos/krb5kdc/kdc.conf
-cp /opt/docker/hosts /etc/hosts
 
 # Creem la BD de les keys dels principals
 kdb5_util create -s -P masterkey

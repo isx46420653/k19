@@ -2,7 +2,6 @@
 
 # Copiem els fitxers de configuració
 cp /opt/docker/krb5.conf /etc/krb5.conf
-cp /opt/docker/hosts /etc/hosts
 cp /opt/docker/ldap.conf /etc/openldap/ldap.conf
 
 # Permetem la autenticació amd LDAP
