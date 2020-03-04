@@ -1,8 +1,7 @@
 #/bin/bash
 
-# Copiem els fitxers de configuració
+# Copiem els fitxer de configuració de Kerberos
 cp /opt/docker/krb5.conf /etc/krb5.conf
-cp /opt/docker/ldap.conf /etc/openldap/ldap.conf
 
 # Permetem la autenticació amd LDAP
 bash /opt/docker/auth.sh
@@ -21,5 +20,9 @@ echo "local4" | passwd --stdin local4
 echo "local5" | passwd --stdin local5
 echo "local6" | passwd --stdin local6
 
+# Generem el Keytab
+kadmin -p pau/admin -w kpau ktadd -k /etc/krb5.keytab host/sshd.edt.org
+
 # Kerberitzem el servei
 cp /opt/docker/sshd_config /etc/ssh/sshd_config
+cp /opt/docker/ssh_config /etc/ssh/ssh_config
