@@ -17,6 +17,14 @@ services:
     ports:
       - "389:389"
     networks:
-      - "mynet"
+      - mynet
+  sshd:
+    image: isx46420653/k19:sshdpl
+    container_name: sshd.edt.org
+    hostname: sshd.edt.org
+    ports:
+      - "22:22"
+    networks:
+      - mynet
 networks:
   mynet:

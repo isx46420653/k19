@@ -1,7 +1,7 @@
 version: "3"
 services:
   kserver:
-    image: edtasixm11/k19:kserver
+    image: isx46420653/k19:kserver
     container_name: kserver.edt.org
     hostname: kserver.edt.org
     ports:
@@ -11,27 +11,19 @@ services:
     networks:
       - mynet
   ldap:
-    image: edtasixm06/ldapserver19:latest
-    container_name: ldap.edt.org
-    hostname: ldap.edt.org
+    image: isx46420653/k19:ldapserver
+    container_name: ldapserver.edt.org
+    hostname: ldapserver.edt.org
     ports:
       - "389:389"
     networks:
       - mynet
   sshd:
-    image: edtasixm11/k19:sshd
+    image: isx46420653/k19:sshdpl
     container_name: sshd.edt.org
     hostname: sshd.edt.org
     ports:
       - "1022:22"
-    networks:
-      - mynet
-  portainer:
-    image: portainer/portainer
-    ports:
-      - "9000:9000"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
       - mynet
 networks:
