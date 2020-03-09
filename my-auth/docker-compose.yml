@@ -23,7 +23,7 @@ services:
     container_name: sshd.edt.org
     hostname: sshd.edt.org
     ports:
-      - "22:22"
+      - "1022:22"
     networks:
       - mynet
 networks:
